@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 40px 20px;
+    height: 100vh;
+  
+}
+
+.container {
+    max-width: 10000px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Cartes en colonne */
+.cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    flex: 1 1 calc(25% - 20px); /* Chaque carte occupe 25% de la largeur moins l'espacement */
+    max-width: 300px; /* Largeur maximale pour éviter des cartes trop grandes */
+    background:  #f37021;
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+}
+
+.card .icon {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .icon i {
+    color: #ff8c00; /* Couleur orange pour l'icône */
+    font-size: 24px;
+}
+
+.card .info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.card .info .number {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.card .info .label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Formulaire */
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+    height: 80vh;
+    margin-top: -2%;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.form-container .subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.modal-form input[type="text"],
+.modal-form input[type="file"],
+.modal-form input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 1rem;
+}
+
+.modal-form input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.alert {
+    border: 1px solid red;
+    background-color: #ffe6e6;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.date-fields {
+    display: flex;
+    gap: 15px;
+}
+
+.date-fields label {
+    flex: 1;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input {
+    margin-right: 10px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.cancel-btn,
+.submit-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cancel-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    text-decoration: none;
+}
+
+.cancel-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}

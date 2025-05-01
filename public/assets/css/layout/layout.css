@@ -1,0 +1,280 @@
+/* ==================== VARIABLES ==================== */
+:root {
+    --color-bg: #f7f8fa;
+    --color-text: #333;
+    --color-white: #fff;
+    --color-border: #b9b5b5;
+    --color-hover-bg: #fff6ed;
+    --color-hover-border: #ff7900;
+    --color-p25-bg: #fff1e6;
+    --color-logout-bg: #fdf3f2;
+    --color-logout-hover: #fcf2f1;
+    --color-logout-text: rgba(130, 68, 79, 1);
+    --color-gray-light: #f5f2f2;
+}
+
+/* ==================== RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+
+
+}
+/* ==================== CONTAINER ==================== */
+.container {
+    display: flex;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+    width: 15%;
+    background-color: var(--color-white);
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+}
+
+.sidebar .orange {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    height: 17%;
+    width: 100%;
+}
+
+.sidebar .orange .logo {
+    width: 70%;
+    height: 40%;
+}
+
+.sidebar .orange .logo .img {
+    width: 100%;
+    height: 100%;
+    background: url("/assets/images/login/logo_odc.png") no-repeat center center / cover;
+}
+
+.sidebar .orange .p25 {
+    width: 70%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: var(--color-p25-bg);
+    font-size: 1rem;
+}
+
+.sidebar nav {
+    width: 100%;
+    height: 75%;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    text-decoration: none;
+    color: rgb(87, 77, 77);
+    border-radius: 8px;
+    height: 7%;
+    padding-left: 7%;
+    position: relative;
+}
+
+.sidebar nav a:hover {
+    background: var(--color-hover-bg);
+    border-left: 8px solid var(--color-hover-border);
+}
+
+.sidebar nav i {
+    font-size: 1rem;
+}
+
+.sidebar .foot {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .log-out {
+    width: 90%;
+    height: 60%;
+    border-radius: 8px;
+    background-color: var(--color-logout-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .log-out a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-logout-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .log-out:hover {
+    background: var(--color-logout-hover);
+}
+
+/* ==================== MAIN ==================== */
+.main {
+    width: 84.9%;
+    position: fixed;
+    right: 0%;
+    top: 0;
+    height: 7.7%;
+    background-color: var(--color-white);
+    z-index: 1000;
+}
+
+/* ==================== HEADER ==================== */
+.topbar {
+    background-color: var(--color-white);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 6px rgba(82, 81, 81, 0.05);
+}
+
+.search-box input {
+    padding: 10px 15px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    background-color: var(--color-gray-light);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.95rem;
+}
+
+.avatar i {
+    font-size: 1.8rem;
+    color: #666;
+}
+
+/* ==================== CONTENU ==================== */
+
+.content{
+    height: 100%;
+    width: 82%;
+
+    position: absolute;
+    right: 1.5%;
+    z-index: 0;
+}
+/* ==================== BURGER BUTTON ==================== */
+.toggle-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    z-index: 1500;
+    color: var(--color-hover-border);
+    cursor: pointer;
+}
+
+/* ==================== MENU CLOSER ==================== */
+.menu-closer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 600px) {
+    .sidebar {
+        left: -100%;
+        width: 60%;
+    }
+
+    #menu-toggle:checked ~ .container .sidebar {
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .search-box input {
+        width: 150px;
+    }
+
+    .user-info {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+
+    /* Afficher les menu-closer seulement quand le menu est ouvert */
+    #menu-toggle:checked ~ .container .menu-closer {
+        display: block;
+    }
+
+    /* Désactiver les events sur les liens pour laisser passer les clics */
+    .sidebar nav a {
+        pointer-events: none;
+    }
+
+    .sidebar nav a * {
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 80%;
+    }
+
+    .search-box input {
+        width: 100px;
+    }
+
+    .content h1 {
+        font-size: 1.4rem;
+    }
+}

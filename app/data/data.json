@@ -1,0 +1,310 @@
+{
+    "utilisateurs": [
+        {
+            "id": 1,
+            "nom": "Admin Principal",
+            "login": "admin@sonatel.sn",
+            "password": "$2y$10$z3TtmZ\/Pzu1TXhIbw8fbq.eTf7oh\/hk3\/6HE1KKDkHUeEkT5UAbP2",
+            "profil": "Admin"
+        },
+        {
+            "id": 2,
+            "nom": "Sécurité Vigile",
+            "login": "vigile@sonatel.sn",
+            "password": "vigile123",
+            "profil": "Vigile"
+        }
+    ],
+    "referenciel": [
+        {
+            "id": 101,
+            "nom": "Développement Web",
+            "capacite": 30,
+            "photo": "assets\/images\/promo\/web_dev.jpg",
+            "modules": 10,
+            "apprenants": 25
+        },
+        {
+            "id": 102,
+            "nom": "Data Science",
+            "capacite": 25,
+            "photo": "assets\/images\/promo\/bbd1.jpg",
+            "modules": 8,
+            "apprenants": 0
+        },
+        {
+            "id": 103,
+            "nom": "Administration Réseau",
+            "capacite": 20,
+            "photo": "assets\/images\/promo\/bbd1.jpg",
+            "modules": 7,
+            "apprenants": 0
+        },
+        {
+            "id": 1745876240,
+            "nom": "test",
+            "description": "tete",
+            "capacite": 30,
+            "sessions": 1,
+            "photo": "assets\/ima1745917252ges\/promo\/bbd1.jpg",
+            "modules": 0,
+            "apprenants": 0
+        }
+    ],
+    "promotions": [
+        {
+            "id": 1,
+            "nom": "P7",
+            "dateDebut": "2025-02-01",
+            "dateFin": "2026-08-01",
+            "referenciels": {
+                "0": 101,
+                "2": 0
+            },
+            "photo": "assets\/images\/promo\/web_dev.jpg",
+            "statut": "Active",
+            "nbrApprenant": 25
+        },
+        {
+            "id": 2,
+            "nom": "test",
+            "dateDebut": "2023-04-12",
+            "dateFin": "2024-04-18",
+            "referenciels": [
+                1745876240
+            ],
+            "photo": "assets\/images\/promo\/bbd1.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 3,
+            "nom": "P8",
+            "dateDebut": "2025-09-01",
+            "dateFin": "2027-02-01",
+            "referenciels": [
+                103
+            ],
+            "photo": "assets\/images\/promo\/data_science.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 4,
+            "nom": "Développement Web Fullstack",
+            "dateDebut": "2024-10-15",
+            "dateFin": "2026-04-20",
+            "referenciels": [
+                104,
+                105
+            ],
+            "photo": "assets\/images\/promo\/fullstack.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 18
+        },
+        {
+            "id": 5,
+            "nom": "Marketing Digital",
+            "dateDebut": "2025-03-01",
+            "dateFin": "2026-03-01",
+            "referenciels": [
+                106
+            ],
+            "photo": "assets\/images\/promo\/marketing.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 6,
+            "nom": "IA et Machine Learning",
+            "dateDebut": "2026-01-10",
+            "dateFin": "2027-07-15",
+            "referenciels": [
+                107
+            ],
+            "photo": "assets\/images\/promo\/ia_ml.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 7,
+            "nom": "Blockchain Development",
+            "dateDebut": "2025-06-01",
+            "dateFin": "2026-12-01",
+            "referenciels": [
+                108
+            ],
+            "photo": "assets\/images\/promo\/blockchain.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 10
+        },
+        {
+            "id": 8,
+            "nom": "DevOps Engineering",
+            "dateDebut": "2024-09-01",
+            "dateFin": "2025-09-01",
+            "referenciels": [
+                109
+            ],
+            "photo": "assets\/images\/promo\/devops.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 9,
+            "nom": "Cybersécurité",
+            "dateDebut": "2025-11-15",
+            "dateFin": "2027-05-15",
+            "referenciels": [
+                110
+            ],
+            "photo": "assets\/images\/promo\/cyber.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 12
+        },
+        {
+            "id": 10,
+            "nom": "UX\/UI Design",
+            "dateDebut": "2024-03-10",
+            "dateFin": "2025-09-10",
+            "referenciels": [
+                111
+            ],
+            "photo": "assets\/images\/promo\/ux_ui.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 11,
+            "nom": "Développement Mobile",
+            "dateDebut": "2025-01-05",
+            "dateFin": "2026-07-05",
+            "referenciels": [
+                112
+            ],
+            "photo": "assets\/images\/promo\/mobile.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 15
+        },
+        {
+            "id": 12,
+            "nom": "Cloud Computing",
+            "dateDebut": "2026-02-01",
+            "dateFin": "2027-08-01",
+            "referenciels": [
+                113
+            ],
+            "photo": "assets\/images\/promo\/cloud.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 13,
+            "nom": "Big Data",
+            "dateDebut": "2025-05-10",
+            "dateFin": "2026-11-10",
+            "referenciels": [
+                114
+            ],
+            "photo": "assets\/images\/promo\/bigdata.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 8
+        },
+        {
+            "id": 14,
+            "nom": "Game Development",
+            "dateDebut": "2024-07-01",
+            "dateFin": "2025-12-01",
+            "referenciels": [
+                115
+            ],
+            "photo": "assets\/images\/promo\/game.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 15,
+            "nom": "E-commerce Management",
+            "dateDebut": "2025-04-01",
+            "dateFin": "2026-10-01",
+            "referenciels": [
+                116
+            ],
+            "photo": "assets\/images\/promo\/ecommerce.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 16,
+            "nom": "Fintech & Banking",
+            "dateDebut": "2025-08-20",
+            "dateFin": "2027-02-20",
+            "referenciels": [
+                117
+            ],
+            "photo": "assets\/images\/promo\/fintech.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 20
+        },
+        {
+            "id": 17,
+            "nom": "Analyse de Données",
+            "dateDebut": "2024-11-01",
+            "dateFin": "2026-05-01",
+            "referenciels": [
+                118
+            ],
+            "photo": "assets\/images\/promo\/analytics.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 18,
+            "nom": "IA pour la Santé",
+            "dateDebut": "2026-05-01",
+            "dateFin": "2027-11-01",
+            "referenciels": [
+                119
+            ],
+            "photo": "assets\/images\/promo\/health_ai.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 19,
+            "nom": "Digital Project Management",
+            "dateDebut": "2025-02-15",
+            "dateFin": "2026-08-15",
+            "referenciels": [
+                120
+            ],
+            "photo": "assets\/images\/promo\/project_management.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 9
+        },
+        {
+            "id": 20,
+            "nom": "Réalité Virtuelle et Augmentée",
+            "dateDebut": "2025-06-01",
+            "dateFin": "2027-01-01",
+            "referenciels": [
+                121
+            ],
+            "photo": "assets\/images\/promo\/vr.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        },
+        {
+            "id": 21,
+            "nom": "test1",
+            "dateDebut": "2023-04-12",
+            "dateFin": "2024-04-13",
+            "referenciels": [
+                101
+            ],
+            "photo": "bbd1.jpg",
+            "statut": "Inactive",
+            "nbrApprenant": 0
+        }
+    ]
+}

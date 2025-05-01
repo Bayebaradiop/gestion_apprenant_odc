@@ -1,0 +1,190 @@
+:root {
+    --orange: #ff7a00;
+    --orange-light: #ff9f00;
+    --teal: #009999;
+    --text-dark: #000;
+    --text-gray: #333;
+    --background: #f5f5f5;
+    --input-border: #ccc;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-image: url("../../../assets/images/login/sonatel_academy.png"); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.form-container {
+    position: relative;
+    width: 100%;
+    height: 70%;
+
+    max-width: 30%;
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 30px 40px;
+    z-index: 1;
+}
+.alert-succes{
+    padding: 10px ;
+    color:    var(--teal);
+    text-align: center;
+    width: 100%;
+    background-color:  rgba(123, 255, 123, 0.2);
+
+}
+.with-shadow::before,
+.with-shadow::after {
+    content: "";
+    position: absolute;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.with-shadow::before {
+    top: 8px;
+    right: -8px;
+    bottom: 0;
+    width: 100%;
+    border-right: 8px solid var(--orange);
+}
+
+.with-shadow::after {
+    bottom: -8px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-bottom: 8px solid var(--teal);
+}
+
+.logo {
+    height: 40px;
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.orange-text {
+    font-size: 12px;
+    color: var(--orange);
+}
+
+.sonatel-text {
+    font-size: 24px;
+    color: var(--teal);
+    font-weight: bold;
+}
+
+.orange-bar {
+    color: var(--orange);
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.welcome {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.academy {
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-top: 5px;
+}
+
+.input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--input-border);
+    font-size: 14px;
+}
+
+.page-link {
+    text-align: right;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.page-link-label {
+    color: var(--orange);
+    cursor: pointer;
+}
+
+.page-link-label:hover {
+    text-decoration: underline;
+}
+
+.form-btn {
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, var(--orange), var(--orange-light));
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.form-btn:hover {
+    opacity: 0.9;
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .main-title {
+        font-size: 20px;
+    }
+
+    .form-btn {
+        font-size: 14px;
+    }
+}

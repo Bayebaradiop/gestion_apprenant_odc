@@ -1,0 +1,236 @@
+:root {
+    --primary-color: #00796b;
+    --secondary-color: #ff5722;
+    --background-color: #f9f9f9;
+    --white: #ffffff;
+    --gray-light: #e0e0e0;
+    --gray: #757575;
+    --gray-dark: #424242;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.ref-container {
+    max-width: 1400px; /* Augmente la largeur maximale */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.ref-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ref-header h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.ref-header p {
+    font-size: 1.1rem;
+    color: var(--gray);
+}
+
+.back-link {
+    color: var(--gray-dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.search-bar input {
+    flex: 1;
+    max-width: 500px; /* Augmente la largeur maximale de la barre de recherche */
+    padding: 0.6rem 1rem; /* Réduit le padding interne */
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    font-size: 0.95rem; /* Ajuste la taille du texte */
+    color: var(--gray-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 121, 107, 0.3);
+    outline: none;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem; /* Réduit le padding interne des boutons */
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem; /* Ajuste la taille du texte */
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}
+
+.btn-orange {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-orange:hover {
+    background-color: #e64a19;
+}
+
+.btn-green {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-green:hover {
+    background-color: #00695c;
+}
+
+.ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Augmente la largeur minimale */
+    gap: 1.5rem; /* Réduit l'espace entre les cartes */
+}
+
+.ref-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ref-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.ref-card img {
+    width: 100%;
+    height: 150px; /* Diminue la hauteur des images */
+    object-fit: cover;
+}
+
+.ref-content {
+    padding: 1rem; /* Réduit le padding interne */
+}
+
+.ref-content h3 {
+    font-size: 1.4rem; /* Réduit la taille du titre */
+    color: var(--primary-color);
+    margin-bottom: 0.3rem; /* Réduit l'espace sous le titre */
+    transition: color 0.3s ease;
+}
+
+.ref-content h3:hover {
+    color: var(--secondary-color);
+}
+
+.ref-content p {
+    font-size: 0.9rem; /* Réduit la taille du texte */
+    color: var(--gray-dark);
+    margin-bottom: 0.8rem; /* Réduit l'espace sous le texte */
+    line-height: 1.4; /* Réduit l'espacement entre les lignes */
+}
+
+.ref-info {
+    font-size: 0.85rem; /* Réduit la taille des informations */
+    color: var(--gray);
+    margin-top: 0.5rem; /* Réduit l'espace au-dessus des informations */
+    font-style: italic;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.custom-pagination a {
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.custom-pagination .arrow:hover,
+.custom-pagination .page-number:hover {
+    background-color: #f37021;
+    color: white;
+    border-color: #f37021;
+}
+
+.custom-pagination .page-number.active {
+    background-color: #f37021;
+    color: white;
+    border-color: #f37021;
+    transform: scale(1.1);
+}
+
+.custom-pagination .arrow.disabled {
+    background-color: #e0e0e0;
+    color: #aaa;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+}
+
+.pagination-info {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}

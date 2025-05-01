@@ -1,0 +1,204 @@
+:root {
+    --primary-color: #00857c;
+    --secondary-color: #ff7900;
+    --background-color: #f5f7fa;
+    --white: #ffffff;
+    --gray-light: #f0f2f5;
+    --gray: #707070;
+    --border-radius: 8px;
+}
+
+/* Modal styles améliorés */
+.modal {
+    display: flex;;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 500px;
+    width: 90%;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-group input[type="file"] {
+    padding: 0.5rem;
+    border: 2px dashed var(--gray-light);
+    background: var(--gray-light);
+    cursor: pointer;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cancel-btn {
+    padding: 0.8rem 1.5rem;
+    color: var(--gray);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: var(--gray-light);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+/* Style pour les champs requis */
+.form-group label[for]::after {
+    content: '*';
+    color: var(--secondary-color);
+    margin-left: 4px;
+}
+
+.upload-zone {
+    border: 2px dashed #ddd;
+    padding: 2rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+/* Styles pour la prévisualisation de l'image */
+.preview-zone {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed var(--gray-light);
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.preview-zone img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.preview-zone.empty {
+    background: var(--gray-light);
+}
+
+/* Styles pour l'upload de fichier */
+.upload-wrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    border: 2px dashed var(--gray-light);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background-color: var(--gray-light);
+    transition: all 0.3s ease;
+}
+
+.upload-label:hover {
+    border-color: var(--primary-color);
+    background-color: var(--gray-light);
+}
+
+.upload-text {
+    color: var(--gray);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
