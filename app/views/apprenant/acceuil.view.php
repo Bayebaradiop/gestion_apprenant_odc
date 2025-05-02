@@ -460,16 +460,29 @@
          <!-- QR Code Card corrigée -->
          <div class="card qr-card">
                 <div class="qr-title">Scanner pour la présence</div>
-                <?php 
-                    $qrData = $user['matricule'] ?? 'inconnu'; 
-                    $qrData = $user['nom_complet'] ?? 'inconnu';
-                    $qrData = $user['login'] ?? 'inconnu';
+                <?php
 
-                     
+                // Exemple de données à encoder dans le QR code  $qrData = $user['matricule'] ?? 'inconnu'; 
+                    // $qrData = $user['nom_complet'] ?? 'inconnu';
+                    // $qrData = $user['login'] ?? 'inconnu';
 
-                    $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode($qrData) . "&size=180x180";
+
+
+                $qrData = [
+                    'nom_complet' => $user['nom_complet'] ?? 'inconnu',
+                    'matricule' => $user['matricule'] ?? 'inconnu',
+                    'login' => $user['login'] ?? 'inconnu',
+                    
+                ];
+
+                $qrDataString = json_encode($qrData); // Convertir le tableau en JSON
+                $qrUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode($qrDataString) . "&size=180x180";
+
+                // Affichage de l'image QR code
+                echo '<img src="' . $qrUrl . '" alt="QR Code">';
                 ?>
-                <img class="qr-code" src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code de <?= htmlspecialchars($user['nom_complet'] ?? '') ?>">
+
+                <!-- <img class="qr-code" src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code de <?= htmlspecialchars($user['nom_complet'] ?? '') ?>"> -->
                 <div class="personal-code">Code de présence personnel</div>
                 
             </div>

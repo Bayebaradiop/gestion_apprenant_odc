@@ -28,7 +28,6 @@ function filtrer_apprenants(array $apprenants, ?string $nomRecherche, ?int $refe
         $matchReferenciel = !$referencielId || ($apprenant['referenciel'] ?? null) == $referencielId;
         $matchNom = !$nomRecherche || stripos($apprenant['nom_complet'] ?? '', $nomRecherche) !== false;
         $matchStatut = !$statut || ($apprenant['statut'] ?? '') === $statut;
-
         return $matchReferenciel && $matchNom && $matchStatut;
     });
 }
