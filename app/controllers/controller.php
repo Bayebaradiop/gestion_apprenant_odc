@@ -115,6 +115,11 @@ function paginer(array $items, int $page, int $parPage): array {
 }
 
 
+function generer_matricule(): string {
+    return "APP" . date('Ymd') . strtoupper(substr(bin2hex(random_bytes(3)), 0, 6));
+}
+
+
 
 
 

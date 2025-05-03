@@ -82,19 +82,6 @@ function lister_apprenant(): void {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function importer_apprenants(): void {
     global $apprenants, $validator;
 
@@ -209,6 +196,9 @@ function charger_lignes_excel(string $cheminFichier): array {
 
 
 
+
+
+
 /**
  * Vérifie si un fichier Excel est soumis
  */
@@ -221,6 +211,7 @@ function fichier_excel_non_valide(): bool {
  */
 function extraire_donnees_apprenant(array $ligne): array {
     return [
+        'matricule' => generer_matricule(),
         'nom_complet' => $ligne[0] ?? '',
         'date_naissance' => $ligne[1] ?? '',
         'lieu_naissance' => $ligne[2] ?? '',
@@ -322,9 +313,6 @@ function traiter_ajout_apprenant(): void {
 /**
  * Générer un matricule automatique
  */
-function generer_matricule(): string {
-    return "APP" . date('Ymd') . strtoupper(substr(bin2hex(random_bytes(3)), 0, 6));
-}
 
 
 function charger_referenciels(): array {

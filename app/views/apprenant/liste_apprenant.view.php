@@ -493,7 +493,7 @@ $success = recuperer_session('success');
   <div class="table-container">
     
     <table>
-      <thead>
+      
         <tr>
           <th>Photo</th>
           <th>Matricule</th>
@@ -504,7 +504,7 @@ $success = recuperer_session('success');
           <th>Statut</th>
           <th>Actions</th>
         </tr>
-      </thead>
+      
 
       <tbody>
 <?php if (!empty($apprenants)): ?>
