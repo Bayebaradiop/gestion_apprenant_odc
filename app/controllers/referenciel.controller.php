@@ -5,7 +5,7 @@ require_once __DIR__ . '/../models/model.php';
 require_once __DIR__ . '/../services/session.service.php';
 require_once __DIR__ . '/../services/validator.service.php';
 
-use App\Enums\CheminPage;
+use App\Enums\vers_page;
 use App\Models\REFMETHODE;
 use App\ENUM\VALIDATOR\VALIDATORMETHODE;
 use App\Models\JSONMETHODE;
@@ -36,7 +36,7 @@ function afficher_page_add_ref(): void {
 function afficher_referentiels(): void {
     global $ref_model, $model_tab;
 
-    $chemin = CheminPage::DATA_JSON->value;
+    $chemin = vers_page::DATA_JSON->value;
     $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
     $promo_active = get_promo_active($data['promotions'] ?? []);
@@ -141,7 +141,7 @@ function ajouter_referenciel(): void {
 function afficher_referentiels_promo(): void {
     global $ref_model, $model_tab;
 
-    $chemin = CheminPage::DATA_JSON->value;
+    $chemin = vers_page::DATA_JSON->value;
     $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
     $promo_active = get_promo_active($data['promotions'] ?? []);
@@ -166,7 +166,7 @@ function affecter_referenciel_a_promo_active(): void {
     global $ref_model, $model_tab;
 
     $ref_id = (int) ($_POST['referenciel_id'] ?? 0);
-    $chemin = CheminPage::DATA_JSON->value;
+    $chemin = vers_page::DATA_JSON->value;
     $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
     $promo_active = get_promo_active($data['promotions'] ?? []);
@@ -228,7 +228,7 @@ function filtrer_referentiels_par_nom(array $referentiels, string $searchTerm): 
 function get_promo_active_from_json(): ?array {
     global $model_tab;
 
-    $chemin = CheminPage::DATA_JSON->value;
+    $chemin = vers_page::DATA_JSON->value;
     $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
     return get_promo_active($data['promotions'] ?? []);

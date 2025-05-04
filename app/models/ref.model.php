@@ -4,14 +4,14 @@ require_once __DIR__ . '/../enums/vers_page.php';
 
 use App\Models\REFMETHODE;
 use App\Models\JSONMETHODE;
-use App\Enums\CheminPage;
+use App\Enums\vers_page;
 
 global $ref_model;
 
 $ref_model = [
     REFMETHODE::GET_ALL->value => function(): array {
         global $model_tab;
-        $chemin = CheminPage::DATA_JSON->value;
+        $chemin = vers_page::DATA_JSON->value;
         return $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin)['referenciel'] ?? [];
     },
 
@@ -19,7 +19,7 @@ $ref_model = [
     
     REFMETHODE::AJOUTER->value => function(array $referenciel): bool {
         global $model_tab;
-        $chemin = CheminPage::DATA_JSON->value;
+        $chemin = vers_page::DATA_JSON->value;
         $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
         
         if (!isset($data['referenciel'])) {
@@ -34,7 +34,7 @@ $ref_model = [
     
     REFMETHODE::AFFECTER->value => function(int $ref_id, int $promo_id): bool {
         global $model_tab;
-        $chemin = CheminPage::DATA_JSON->value;
+        $chemin = vers_page::DATA_JSON->value;
         $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
         
         // Vérifier si la promotion existe et mettre à jour son référentiel
@@ -53,7 +53,7 @@ $ref_model = [
     },
     REFMETHODE::GET_NON_AFFECTES->value => function(): array {
         global $model_tab;
-        $chemin = CheminPage::DATA_JSON->value;
+        $chemin = vers_page::DATA_JSON->value;
     
         $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
         $referentiels = $data['referenciel'] ?? [];
@@ -73,7 +73,7 @@ $ref_model = [
     },
     REFMETHODE::AFFECTER_REF_PROMO_ACTIVE->value => function(int $ref_id): bool {
         global $model_tab;
-        $chemin = CheminPage::DATA_JSON->value;
+        $chemin = vers_page::DATA_JSON->value;
         $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
         if (!isset($data['promotions'])) return false;
@@ -91,7 +91,7 @@ $ref_model = [
     },
     REFMETHODE::DESAFFECTER->value => function(int $ref_id): bool {
         global $model_tab;
-        $chemin = CheminPage::DATA_JSON->value;
+        $chemin = vers_page::DATA_JSON->value;
         $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
         if (!isset($data['promotions'])) return false;

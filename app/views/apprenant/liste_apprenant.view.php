@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/../../enums/vers_page.php';
-use App\Enums\CheminPage;
-require_once CheminPage::ERROR_FR->value;
-require_once CheminPage::ERREUR_ENUM->value;
+use App\Enums\vers_page;
+require_once vers_page::ERROR_FR->value;
+require_once vers_page::ERREUR_ENUM->value;
 
 $errors = recuperer_session('errors', []);
 $success = recuperer_session('success');

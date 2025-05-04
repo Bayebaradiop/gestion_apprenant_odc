@@ -5,10 +5,10 @@
   <?php
   require_once __DIR__ . '/../../enums/vers_page.php';
 
-  use App\Enums\CheminPage;
+  use App\Enums\vers_page;
 
   $url = "http://" . $_SERVER["HTTP_HOST"];
-  $css_promo = CheminPage::CSS_PROMO->value;
+  $css_promo = vers_page::CSS_PROMO->value;
   ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

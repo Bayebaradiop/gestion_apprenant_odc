@@ -3,10 +3,10 @@
 <?php
 require_once __DIR__ . '/../../enums/vers_page.php';
 
-use App\Enums\CheminPage;
+use App\Enums\vers_page;
 
 $url = "http://" . $_SERVER["HTTP_HOST"];
-$css_ref = CheminPage::CSS_REFERENCIEL->value;
+$css_ref = vers_page::CSS_REFERENCIEL->value;
 require_once __DIR__ . '/../../services/session.service.php';
 
 $errors = recuperer_session('errors', []);
