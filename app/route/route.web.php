@@ -31,6 +31,12 @@ match ($page) {
         lister_apprenant();
     })(),
 
+
+    'entente' => (function () {
+        require_once vers_page::APPRENANT_CONTROLLER->value;
+            lister_en_attente();
+    })(),
+
    'ajouter_apprenant' => (function () {
         require_once vers_page::APPRENANT_CONTROLLER->value;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

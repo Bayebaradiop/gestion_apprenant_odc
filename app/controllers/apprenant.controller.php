@@ -82,6 +82,42 @@ function lister_apprenant(): void {
 
 
 
+//en entente
+
+
+function ajouter_en_attente(array $apprenant, string $cheminJson, string $motif): void {
+    $contenu = json_decode(file_get_contents($cheminJson), true);
+
+    // Ajouter motif de rejet
+    $apprenant['motif_rejet'] = $motif;
+
+    if (!isset($contenu['en_attente']) || !is_array($contenu['en_attente'])) {
+        $contenu['en_attente'] = [];
+    }
+
+    $contenu['en_attente'][] = $apprenant;
+
+    file_put_contents($cheminJson, json_encode($contenu, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
+
+
+
+function lister_en_attente(): void {
+    global $model_tab;
+
+    $chemin = vers_page::DATA_JSON->value;
+    $contenu = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
+    $en_attente = $contenu['en_attente'] ?? [];
+
+    render('apprenant/entente', [
+        'apprenants' => $en_attente
+    ], layout: 'base.layout');
+}
+
+
+
+
+
 function importer_apprenants(): void {
     global $apprenants, $validator;
 
@@ -114,6 +150,9 @@ function importer_apprenants(): void {
             if ($envoiMail !== true) {
                 enregistrer_message_erreur("Échec d'envoi pour $email : $envoiMail");
             }
+        }else {
+            
+            ajouter_en_attente(extraire_donnees_apprenant($ligne), $cheminJson, 'Erreur de validation ou référentiel invalide (ligne ' . ($index + 2) . ')');
         }
     }
 
@@ -126,9 +165,6 @@ function importer_apprenants(): void {
 
     rediriger_vers_liste_apprenants();
 }
-
-
-
 
 
 
@@ -147,9 +183,6 @@ function get_referentiels_valides(string $cheminJson): array {
 
     return $referentiels;
 }
-
-
-
 
 
 
