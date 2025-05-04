@@ -13,6 +13,9 @@ enum CheminPage: string
     case APPRENANT_CONTROLLER = __DIR__ . '/../controllers/apprenant.controller.php';
 
 
+
+
+    
     // Modèle
     case MODEL = __DIR__ . '/../models/model.php';
     case AUTH_MODEL = __DIR__ . '/../models/auth.model.php';

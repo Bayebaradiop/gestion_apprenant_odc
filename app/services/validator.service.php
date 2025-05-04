@@ -3,7 +3,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../enums/validator.enum.php';
 require_once __DIR__ . '/../enums/erreur.enum.php';
 require_once __DIR__ . '/../enums/model.enum.php';
-require_once __DIR__ . '/../enums/chemin_page.php';
+require_once __DIR__ . '/../enums/vers_page.php';
 require_once __DIR__ . '/../models/model.php';
 
 use App\ENUM\VALIDATOR\VALIDATORMETHODE;

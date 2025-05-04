@@ -1,7 +1,7 @@
 <?php
 global $model_tab;
 require_once __DIR__ . '/../enums/model.enum.php';
-require_once __DIR__ . '/../enums/chemin_page.php';
+require_once __DIR__ . '/../enums/vers_page.php';
 
 use App\Enums\CheminPage;
 use App\Models\JSONMETHODE;

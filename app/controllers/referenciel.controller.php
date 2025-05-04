@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../enums/chemin_page.php';
+require_once __DIR__ . '/../enums/vers_page.php';
 require_once __DIR__ . '/../models/ref.model.php';
 require_once __DIR__ . '/../models/model.php';
 require_once __DIR__ . '/../services/session.service.php';
