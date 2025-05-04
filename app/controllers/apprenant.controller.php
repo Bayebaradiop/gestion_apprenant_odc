@@ -52,7 +52,6 @@ function filtrer_apprenants(array $apprenants, ?string $nomRecherche, ?int $refe
 
 
 
-
 function lister_apprenant(): void {
     global $apprenants;
 
