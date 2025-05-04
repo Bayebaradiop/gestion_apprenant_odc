@@ -79,6 +79,7 @@
       <?php foreach ($promotions as $promo): ?>
         <div class="promo-card">
           <div class="promo-header">
+
             <div class="toggle-container">
               <form method="GET" action="index.php">
                 <input type="hidden" name="page" value="activer_promo">
@@ -89,6 +90,8 @@
                 </button>
               </form>
             </div>
+
+            
           </div>
 
           <div class="promo-body">

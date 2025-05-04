@@ -81,6 +81,7 @@ match ($page) {
     'activer_promo' => (function () {
         require_once CheminPage::PROMO_CONTROLLER->value;
         traiter_activation_promotion();
+        
     })(),
 
     'affecter_ref_promo' => (function () {
