@@ -1,13 +1,13 @@
 <?php
 global $model_tab;
 require_once __DIR__ . '/../enums/model.enum.php';
-require_once __DIR__ . '/../enums/chemin_page.php';
+require_once __DIR__ . '/../enums/vers_page.php';
 
-use App\Enums\CheminPage;
+use App\Enums\vers_page;
 use App\Models\JSONMETHODE;
 use App\Models\PROMOMETHODE;
 
-$json = CheminPage::DATA_JSON->value;
+$json = vers_page::DATA_JSON->value;
 $jsontoarray = $model_tab[JSONMETHODE::JSONTOARRAY->value];
 
 global $promos;

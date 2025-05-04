@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/../enums/chemin_page.php';
-use App\Enums\CheminPage;
-require_once CheminPage::AUTH_MODEL->value;
-require_once CheminPage::SESSION_SERVICE->value;
-require_once CheminPage::MESSAGE_FR->value;
-require_once CheminPage::VALIDATOR_SERVICE->value;
+require_once __DIR__ . '/../enums/vers_page.php';
+use App\Enums\vers_page;
+require_once vers_page::AUTH_MODEL->value;
+require_once vers_page::SESSION_SERVICE->value;
+require_once vers_page::MESSAGE_FR->value;
+require_once vers_page::VALIDATOR_SERVICE->value;
 
 use App\ENUM\VALIDATOR\VALIDATORMETHODE;
 use App\Models\AUTHMETHODE;
@@ -31,7 +31,7 @@ function voir_page_login(): void {
 
 function traiter_connexion(): void {
     global $validator, $auth_model;
-    $chemin_data = CheminPage::DATA_JSON->value;
+    $chemin_data = vers_page::DATA_JSON->value;
 
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -80,7 +80,7 @@ function voir_page_reset_password(): void {
 
 function traiter_reset_password(): void {
     global $auth_model;
-    $chemin_data = CheminPage::DATA_JSON->value;
+    $chemin_data = vers_page::DATA_JSON->value;
 
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';

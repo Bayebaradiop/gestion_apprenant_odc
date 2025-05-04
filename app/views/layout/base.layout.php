@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php
-require_once __DIR__ . '/../../enums/chemin_page.php';
-use App\Enums\CheminPage;
+require_once __DIR__ . '/../../enums/vers_page.php';
+use App\Enums\vers_page;
 $url="http://".$_SERVER["HTTP_HOST"];
 ?>
 <head>
@@ -75,7 +75,7 @@ $url="http://".$_SERVER["HTTP_HOST"];
                 <div class="avatar"><i class="fas fa-user-circle"></i></div>
                 <?php
                 // Démarrer la session
-                require_once CheminPage::SESSION_SERVICE->value;
+                require_once vers_page::SESSION_SERVICE->value;
                 demarrer_session();
                 $user = recuperer_session('user');
                 ?>

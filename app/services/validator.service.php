@@ -3,12 +3,12 @@ declare(strict_types=1);
 require_once __DIR__ . '/../enums/validator.enum.php';
 require_once __DIR__ . '/../enums/erreur.enum.php';
 require_once __DIR__ . '/../enums/model.enum.php';
-require_once __DIR__ . '/../enums/chemin_page.php';
+require_once __DIR__ . '/../enums/vers_page.php';
 require_once __DIR__ . '/../models/model.php';
 
 use App\ENUM\VALIDATOR\VALIDATORMETHODE;
 use App\ENUM\ERREUR\ErreurEnum;
-use App\Enums\CheminPage;
+use App\Enums\vers_page;
 use App\Models\JSONMETHODE;
 use App\Models\APPMETHODE;
 use App\Models\AUTHMETHODE;
@@ -76,7 +76,7 @@ $validator = [
             $errors['nom_promo'] = 'Le nom de la promotion est obligatoire.';
         } else {
             // Unicité du nom
-            $chemin = \App\Enums\CheminPage::DATA_JSON->value;
+            $chemin = \App\Enums\vers_page::DATA_JSON->value;
             if (file_exists($chemin)) {
                 $contenu = json_decode(file_get_contents($chemin), true);
                 $promos = $contenu['promotions'] ?? [];
@@ -198,7 +198,7 @@ $validator = [
             $errors['login'] = ErreurEnum::APPRENANT_EMAIL_INVALID->value;
         } else {
             // Vérification de l'unicité
-            $chemin = CheminPage::DATA_JSON->value;
+            $chemin = vers_page::DATA_JSON->value;
             global $model_tab;
             $utilisateurs = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin, 'utilisateurs');
         
@@ -222,7 +222,7 @@ $validator = [
         } elseif (!preg_match('/^\d{9}$/', $data['telephone'])) {
             $errors['telephone'] = ErreurEnum::APPRENANT_TELEPHONE_INVALID->value;
         } else {
-            $chemin = \App\Enums\CheminPage::DATA_JSON->value;
+            $chemin = \App\Enums\vers_page::DATA_JSON->value;
             if (file_exists($chemin)) {
                 $contenu = json_decode(file_get_contents($chemin), true);
                 $utilisateurs = $contenu['utilisateurs'] ?? [];
@@ -240,7 +240,7 @@ $validator = [
         // if (empty(trim($data['matricule'] ?? ''))) {
         //     $errors['matricule'] = ErreurEnum::APPRENANT_MATRICULE_REQUIRED->value;
         // } else {
-        //     $chemin = \App\Enums\CheminPage::DATA_JSON->value;
+        //     $chemin = \App\Enums\vers_page::DATA_JSON->value;
         //     if (file_exists($chemin)) {
         //         $contenu = json_decode(file_get_contents($chemin), true);
         //         $utilisateurs = $contenu['utilisateurs'] ?? [];

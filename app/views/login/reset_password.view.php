@@ -1,12 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../../enums/chemin_page.php';
+require_once __DIR__ . '/../../enums/vers_page.php';
 
-use App\Enums\CheminPage;
+use App\Enums\vers_page;
 
 $url = "http://" . $_SERVER["HTTP_HOST"];
-$css_login = CheminPage::CSS_LOGIN->value;
-$logo_image = CheminPage::IMG_LOGO_LOGIN->value;
+$css_login = vers_page::CSS_LOGIN->value;
+$logo_image = vers_page::IMG_LOGO_LOGIN->value;
 ?>
 <!DOCTYPE html>
 <html lang="fr">

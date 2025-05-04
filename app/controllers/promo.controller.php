@@ -1,16 +1,16 @@
 <?php
 
-require_once __DIR__ . '/../enums/chemin_page.php';
-use App\Enums\CheminPage;
+require_once __DIR__ . '/../enums/vers_page.php';
+use App\Enums\vers_page;
 
-require_once CheminPage::MODEL->value;
-require_once CheminPage::MESSAGE_ENUM->value;
-require_once CheminPage::ERREUR_ENUM->value;
-require_once CheminPage::SESSION_SERVICE->value;
-require_once CheminPage::VALIDATOR_SERVICE->value;
-require_once CheminPage::REF_MODEL->value;
-require_once CheminPage::MODEL_ENUM->value;
-require_once CheminPage::PROMO_MODEL->value;
+require_once vers_page::MODEL->value;
+require_once vers_page::MESSAGE_ENUM->value;
+require_once vers_page::ERREUR_ENUM->value;
+require_once vers_page::SESSION_SERVICE->value;
+require_once vers_page::VALIDATOR_SERVICE->value;
+require_once vers_page::REF_MODEL->value;
+require_once vers_page::MODEL_ENUM->value;
+require_once vers_page::PROMO_MODEL->value;
 
 use App\ENUM\ERREUR\ErreurEnum;
 use App\Models\PROMOMETHODE;
@@ -100,7 +100,7 @@ function traiter_creation_promotion(): void {
         exit;
     }
 
-    $cheminFichier = CheminPage::DATA_JSON->value;
+    $cheminFichier = vers_page::DATA_JSON->value;
     $donneesExistantes = charger_promotions_existantes($cheminFichier);
 
     $cheminPhoto = $data['photo']['name'] ?? '';
@@ -153,7 +153,7 @@ function creer_donnees_promotion(array $post, array $donneesExistantes, string $
 function activer_promotion_et_rediriger(int $idPromo, string $redirectPage): void {
     global $promos;
 
-    $cheminFichier = CheminPage::DATA_JSON->value;
+    $cheminFichier = vers_page::DATA_JSON->value;
     $promos[PROMOMETHODE::ACTIVER_PROMO->value]($idPromo, $cheminFichier);
 
     redirect_to_route('index.php', ['page' => $redirectPage]);
@@ -220,7 +220,7 @@ function get_page_courante(): int {
 function get_promo_active_name(): ?string {
     global $model_tab;
 
-    $chemin = \App\Enums\CheminPage::DATA_JSON->value;
+    $chemin = \App\Enums\vers_page::DATA_JSON->value;
     $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
     if (!empty($data['promotions'])) {
@@ -238,7 +238,7 @@ function get_promo_active_name(): ?string {
 function get_nb_referentiels_promo_active(): int {
     global $model_tab;
 
-    $chemin = \App\Enums\CheminPage::DATA_JSON->value;
+    $chemin = \App\Enums\vers_page::DATA_JSON->value;
     $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
     if (!empty($data['promotions'])) {
@@ -256,7 +256,7 @@ function get_nb_referentiels_promo_active(): int {
 function get_total_promotions(): int {
     global $model_tab;
 
-    $chemin = \App\Enums\CheminPage::DATA_JSON->value;
+    $chemin = \App\Enums\vers_page::DATA_JSON->value;
     $data = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
     return isset($data['promotions']) ? count($data['promotions']) : 0;

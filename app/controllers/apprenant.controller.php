@@ -1,21 +1,21 @@
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php'; 
 
-require_once __DIR__ . '/../enums/chemin_page.php';
+require_once __DIR__ . '/../enums/vers_page.php';
 require_once __DIR__ . '/../enums/model.enum.php';
 require_once __DIR__ . '/referenciel.controller.php';
 
-use App\Enums\CheminPage;
+use App\Enums\vers_page;
 use App\Models\APPMETHODE;
 use App\Models\JSONMETHODE;
 use App\Models\REFMETHODE;
 use App\ENUM\VALIDATOR\VALIDATORMETHODE;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-require_once CheminPage::MODEL->value;
-require_once CheminPage::SESSION_SERVICE->value;
-require_once CheminPage::APPRENANT_MODEL->value;
-require_once CheminPage::REF_MODEL->value; 
-require_once CheminPage::VALIDATOR_SERVICE->value;
+require_once vers_page::MODEL->value;
+require_once vers_page::SESSION_SERVICE->value;
+require_once vers_page::APPRENANT_MODEL->value;
+require_once vers_page::REF_MODEL->value; 
+require_once vers_page::VALIDATOR_SERVICE->value;
 
 
 
@@ -92,7 +92,7 @@ function importer_apprenants(): void {
 
     $cheminFichier = $_FILES['import_excel']['tmp_name'];
     $lignes = charger_lignes_excel($cheminFichier);
-    $cheminJson = CheminPage::DATA_JSON->value;
+    $cheminJson = vers_page::DATA_JSON->value;
     $referentielsValides = get_referentiels_valides($cheminJson);
 
     $apprenantsImportes = [];
@@ -300,7 +300,7 @@ function traiter_ajout_apprenant(): void {
         exit;
     }
 
-    $cheminJson = CheminPage::DATA_JSON->value;
+    $cheminJson = vers_page::DATA_JSON->value;
     $nouvelApprenant = creer_donnees_apprenant($data);
 
     $apprenants[APPMETHODE::AJOUTER->value]($nouvelApprenant, $cheminJson);
@@ -317,7 +317,7 @@ function traiter_ajout_apprenant(): void {
 function charger_referenciels(): array {
     global $model_tab;
 
-    $chemin = CheminPage::DATA_JSON->value;
+    $chemin = vers_page::DATA_JSON->value;
     $contenu = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
     return $contenu['referenciel'] ?? [];
 }

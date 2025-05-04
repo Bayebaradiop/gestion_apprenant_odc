@@ -1,7 +1,7 @@
 <?php
 namespace App\Enums;
 
-enum CheminPage: string
+enum vers_page: string
 {
     // Contrôleurs
     case CONTROLLER = __DIR__ . '/../controllers/controller.php';

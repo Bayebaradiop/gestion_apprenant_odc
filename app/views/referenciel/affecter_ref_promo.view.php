@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../enums/chemin_page.php';
+require_once __DIR__ . '/../../enums/vers_page.php';
 use App\Enums\CheminPage;
 
 $url = "http://" . $_SERVER["HTTP_HOST"];
