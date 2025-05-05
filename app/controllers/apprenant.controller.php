@@ -507,21 +507,21 @@ function traiter_modification_en_attente(): void {
 
     if (!empty($errors)) {
         stocker_session('errors', $errors);
-        redirect_to_route('index.php', ['page' => 'modifier_entente', 'id' => $data['id']]);
+        redirect_to_route('index.php', ['page' => 'modifier_entente', 'matricule' => $data['matricule']]);
         exit;
     }
 
     $chemin = vers_page::DATA_JSON->value;
     $contenu = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
 
-    // Supprimer l'apprenant de "en_attente"
-    $contenu['en_attente'] = array_filter(
+    // Supprimer l'apprenant correspondant via le matricule
+    $contenu['en_attente'] = array_values(array_filter(
         $contenu['en_attente'],
-        fn($a) => $a['id'] != $data['id']
-    );
+        fn($a) => $a['matricule'] !== $data['matricule']
+    ));
 
     // Ajout des champs obligatoires
-    $data['id'] = time() + rand(1, 999); 
+    $data['id'] = time() + rand(1, 999);
     $data['password'] = password_hash('password123', PASSWORD_DEFAULT);
     $data['statut'] = 'Retenu';
     $data['profil'] = 'Apprenant';
@@ -534,6 +534,35 @@ function traiter_modification_en_attente(): void {
     redirect_to_route('index.php', ['page' => 'liste_apprenant']);
 }
 
+
+
+
+function envoyerEmailApprenant($to, $login, $password) {
+    require_once __DIR__ . '/../../vendor/autoload.php';
+    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com'; 
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'bayebara2000@gmail.com'; 
+        $mail->Password   = 'qtib crvw qfgj hrvz'; 
+        $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        $mail->setFrom('bayebara2000@gmail.com', 'sonatel_academy');
+        $mail->addAddress($to);
+
+        $mail->isHTML(false);
+        $mail->Subject = 'Bienvenue sur la plateforme ODC-SENEGAL';
+        $mail->Body    = "Bonjour,\n\nVotre compte a été créé avec succès.\nLogin : $login\nMot de passe : $password\n\nMerci.";
+
+        $mail->send();
+        return true;
+    } catch (\Exception $e) {
+        return "Erreur lors de l'envoi de l'email : {$mail->ErrorInfo}";
+    }
+}
 
 
 
