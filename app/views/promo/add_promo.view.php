@@ -6,11 +6,18 @@ demarrer_session();
 
 $errors = recuperer_session_flash('errors', []);
 $old = recuperer_session_flash('old_inputs', []);
+
+require_once __DIR__ . '/../../enums/vers_page.php';
+  use App\Enums\vers_page;
+  $url = "http://" . $_SERVER["HTTP_HOST"];
+  $CSS_PROMOa = vers_page::CSS_PROMOa->value;
 ?>
+
+
 <head>
     <meta charset="UTF-8">
     <title>Créer une promotion</title>
-    <link rel="stylesheet" href="/assets/css/promo/add_promo.css">
+    <link rel="stylesheet" href="<?= $url . $CSS_PROMOa ?>">
    
 </head>
 <body>

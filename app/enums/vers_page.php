@@ -82,7 +82,11 @@ enum vers_page: string
     case CSS_PROMO = '/assets/css/promo/promo.css';
     case CSS_PROMOa = '/assets/css/promo/add_promo.css';
     case CSS_REFERENCIEL = '/assets/css/referenciel/referenciel.css';
-
+    case CSS_acceuil = '/assets/css/apprenant/acceuil.css';
+    case CSS_ajouter = '/assets/css/apprenant/ajouter.css';
+    case CSS_detail = '/assets/css/apprenant/detail.css';
+    case CSS_liste = '/assets/css/apprenant/liste.css';
+    case CSS_entente = '/assets/css/apprenant/entente.css';
 
     // Images
     case IMG_LOGO_LOGIN = '/assets/images/login/logo_odc.png';

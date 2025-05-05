@@ -19,8 +19,7 @@ unset($_SESSION['errors'], $_SESSION['old_inputs'], $_SESSION['success']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Affecter un référentiel</title>
     <link rel="stylesheet" href="<?= $url . $css_ref ?>">
-    <style>
-        /* styles existants + alertes toast */
+    <!-- <style>
         .alert {
             padding: 10px;
             margin-bottom: 15px;
@@ -35,7 +34,7 @@ unset($_SESSION['errors'], $_SESSION['old_inputs'], $_SESSION['success']);
             background-color: #ddffdd;
             color: #270;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>

@@ -1,10 +1,18 @@
+<?php
+require_once __DIR__ . '/../../enums/vers_page.php';
+use App\Enums\vers_page;
+$url = "http://" . $_SERVER["HTTP_HOST"];
+$CSS_acceuil = vers_page::CSS_acceuil->value;
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de Bord Sonatel</title>
-    <style>
+    <!-- <style>
         /* Variables et styles généraux */
         :root {
             --primary-color: #f26522;
@@ -359,7 +367,10 @@
             font-size: 12px;
             font-weight: 600;
         }
-    </style>
+    </style> -->
+
+    <link rel="stylesheet" href="<?= $url . $CSS_acceuil ?>">
+
 </head>
 <body>
     <!-- Header -->

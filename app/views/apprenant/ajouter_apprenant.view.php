@@ -4,7 +4,14 @@ demarrer_session();
 
 $errors = recuperer_session_flash('errors', []);
 $old = recuperer_session_flash('old_inputs', []);
+
+require_once __DIR__ . '/../../enums/vers_page.php';
+use App\Enums\vers_page;
+$url = "http://" . $_SERVER["HTTP_HOST"];
+$CSS_ajouter = vers_page::CSS_ajouter->value;
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,44 +19,10 @@ $old = recuperer_session_flash('old_inputs', []);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ajout Apprenant</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: #f5f7fa; padding: 30px; }
-    .containerajour_apprenant {
-      background: #fff;
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      max-width: 1200px;
-      margin-top: 5%;
-      margin-left: 5%;
-    }
-    h1 { text-align: center; margin-bottom: 30px; color: #009688; }
-    .section { margin-bottom: 40px; }
-    .section-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    .section-header h2 { font-size: 1.3rem; color: #333; }
-    .edit-icon { cursor: pointer; font-size: 1.2rem; color: #666; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .form-group { display: flex; flex-direction: column; }
-    .form-group label { font-size: 0.9rem; margin-bottom: 5px; color: #666; }
-    .form-group input, .form-group select {
-      padding: 10px; border: 1px solid #ccc; border-radius: 10px; font-size: 1rem;
-    }
-    .alert { border-color: red !important; }
-    .error-message { color: red; font-size: 0.8rem; margin-top: 5px; }
-    .file-upload .upload-box {
-      border: 2px dashed #2979ff; padding: 20px; text-align: center;
-      border-radius: 10px; cursor: pointer; position: relative;
-    }
-    .file-upload input[type="file"] { opacity: 0; position: absolute; width: 100%; height: 100%; left: 0; top: 0; cursor: pointer; }
-    .file-upload p { margin: 0; font-size: 0.95rem; color: #2979ff; }
-    .buttons { display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px; }
-    .cancel { background: transparent; color: #555; border: none; font-size: 1rem; cursor: pointer; }
-    .submit { background: #009688; color: white; border: none; padding: 12px 25px; border-radius: 10px; font-size: 1rem; cursor: pointer; }
-  </style>
+
+
+  <link rel="stylesheet" href="<?= $url . $CSS_ajouter ?>">
+
 </head>
 
 <body>

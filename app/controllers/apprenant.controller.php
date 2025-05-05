@@ -370,13 +370,28 @@ function traiter_ajout_apprenant(): void {
  * Générer un matricule automatique
  */
 
-function charger_referenciels(): array {
+ function charger_referenciels(): array {
     global $model_tab;
 
     $chemin = vers_page::DATA_JSON->value;
     $contenu = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
-    return $contenu['referenciel'] ?? [];
+
+    $referenciels = $contenu['referenciel'] ?? [];
+    $promotions = $contenu['promotions'] ?? [];
+
+    $idsRefsActives = [];
+
+    foreach ($promotions as $promo) {
+        if (est_promo_en_cours($promo)) {
+            foreach ($promo['referenciels'] as $idRef) {
+                $idsRefsActives[] = (int)$idRef;
+            }
+        }
+    }
+
+    return array_values(array_filter($referenciels, fn($ref) => in_array((int)$ref['id'], $idsRefsActives)));
 }
+
 
 
 
@@ -447,35 +462,80 @@ function afficher_detail_apprenant(): void {
 
 
 
-
-
-
-
-function envoyerEmailApprenant($to, $login, $password) {
-    require_once __DIR__ . '/../../vendor/autoload.php';
-    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-
-    try {
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com'; 
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'bayebara2000@gmail.com'; 
-        $mail->Password   = 'qtib crvw qfgj hrvz'; 
-        $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-
-        $mail->setFrom('bayebara2000@gmail.com', 'lav');
-        $mail->addAddress($to);
-
-        $mail->isHTML(false);
-        $mail->Subject = 'Bienvenue sur la plateforme ODC-SENEGAL';
-        $mail->Body    = "Bonjour,\n\nVotre compte a été créé avec succès.\nLogin : $login\nMot de passe : $password\n\nMerci.";
-
-        $mail->send();
-        return true;
-    } catch (\Exception $e) {
-        return "Erreur lors de l'envoi de l'email : {$mail->ErrorInfo}";
+function afficher_formulaire_correction_en_attente(): void {
+    $matricule = $_GET['matricule'] ?? null;
+    if (!$matricule) {
+        enregistrer_message_erreur("Identifiant manquant.");
+        redirect_to_route('index.php', ['page' => 'entente']);
+        exit;
     }
+
+    global $model_tab;
+    $chemin = vers_page::DATA_JSON->value;
+    $contenu = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
+    $en_attente = $contenu['en_attente'] ?? [];
+
+    $apprenant = array_filter($en_attente, fn($a) => $a['matricule'] == $matricule);
+    if (empty($apprenant)) {
+        enregistrer_message_erreur("Apprenant introuvable.");
+        redirect_to_route('index.php', ['page' => 'entente']);
+        exit;
+    }
+
+    $apprenant = array_values($apprenant)[0]; // Récupère le seul élément
+    $referenciels = charger_referenciels();
+    $errors = recuperer_session('errors', []);
+
+    render('apprenant/modifier_entente', [
+        'apprenant' => $apprenant,
+        'referenciels' => $referenciels,
+        'errors' => $errors
+    ], layout: 'base.layout');
 }
+
+
+
+
+
+
+function traiter_modification_en_attente(): void {
+    global $apprenants, $validator, $model_tab;
+
+    $data = $_POST;
+
+    $errors = $validator[VALIDATORMETHODE::APPRENANT->value]($data);
+
+    if (!empty($errors)) {
+        stocker_session('errors', $errors);
+        redirect_to_route('index.php', ['page' => 'modifier_entente', 'id' => $data['id']]);
+        exit;
+    }
+
+    $chemin = vers_page::DATA_JSON->value;
+    $contenu = $model_tab[JSONMETHODE::JSONTOARRAY->value]($chemin);
+
+    // Supprimer l'apprenant de "en_attente"
+    $contenu['en_attente'] = array_filter(
+        $contenu['en_attente'],
+        fn($a) => $a['id'] != $data['id']
+    );
+
+    // Ajout des champs obligatoires
+    $data['id'] = time() + rand(1, 999); 
+    $data['password'] = password_hash('password123', PASSWORD_DEFAULT);
+    $data['statut'] = 'Retenu';
+    $data['profil'] = 'Apprenant';
+
+    $contenu['utilisateurs'][] = $data;
+
+    $model_tab[JSONMETHODE::ARRAYTOJSON->value]($contenu, $chemin);
+
+    enregistrer_message_succes("Apprenant approuvé avec succès.");
+    redirect_to_route('index.php', ['page' => 'liste_apprenant']);
+}
+
+
+
+
 
 ?>

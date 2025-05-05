@@ -116,6 +116,16 @@ match ($page) {
             desaffecter_referenciel_de_promo_active();
         })(),
 
+        'modifier_entente' => (function () {
+    require_once vers_page::APPRENANT_CONTROLLER->value;
+    afficher_formulaire_correction_en_attente();
+    })(),
+
+  'traiter_modification_en_attente' => (function () {
+    require_once vers_page::APPRENANT_CONTROLLER->value;
+    traiter_modification_en_attente();
+})(),
+
 
     default => (function () use ($page) {
         require_once vers_page::ERROR_CONTROLLER->value;
@@ -143,6 +153,7 @@ match ($page) {
 //         default => null,
 //     };
 // }
+
 
 
 
