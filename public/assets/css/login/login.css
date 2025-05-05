@@ -1,190 +1,280 @@
-:root {
-    --orange: #ff7a00;
-    --orange-light: #ff9f00;
-    --teal: #009999;
-    --text-dark: #000;
-    --text-gray: #333;
-    --background: #f5f5f5;
-    --input-border: #ccc;
-    --white: #fff;
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* background-image: url("../../../assets/images/login/sonatel_academy.png"); */
-    background-size: contain;
-    background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-}
-
-.form-container {
-    position: relative;
-    width: 100%;
-    height: 70%;
-
-    max-width: 30%;
-    background-color: var(--white);
-    border-radius: 20px;
-    padding: 30px 40px;
-    z-index: 1;
-}
-.alert-succes{
-    padding: 10px ;
-    color:    var(--teal);
-    text-align: center;
-    width: 100%;
-    background-color:  rgba(123, 255, 123, 0.2);
-
-}
-.with-shadow::before,
-.with-shadow::after {
-    content: "";
-    position: absolute;
-    border-radius: 20px;
-    z-index: -1;
-}
-
-.with-shadow::before {
-    top: 8px;
-    right: -8px;
-    bottom: 0;
-    width: 100%;
-    border-right: 8px solid var(--orange);
-}
-
-.with-shadow::after {
-    bottom: -8px;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-bottom: 8px solid var(--teal);
-}
-
-.logo {
-    height: 40px;
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.orange-text {
-    font-size: 12px;
-    color: var(--orange);
-}
-
-.sonatel-text {
-    font-size: 24px;
-    color: var(--teal);
-    font-weight: bold;
-}
-
-.orange-bar {
-    color: var(--orange);
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: 4px;
-}
-
-.welcome {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-    color: var(--text-dark);
-}
-
-.academy {
-    color: var(--orange);
-    font-weight: bold;
-}
-
-.main-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    font-size: 14px;
-    color: var(--text-gray);
-    margin-top: 5px;
-}
-
-.input {
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid var(--input-border);
-    font-size: 14px;
-}
-
-.page-link {
-    text-align: right;
-    font-size: 12px;
-    margin-top: -10px;
-}
-
-.page-link-label {
-    color: var(--orange);
-    cursor: pointer;
-}
-
-.page-link-label:hover {
-    text-decoration: underline;
-}
-
-.form-btn {
-    margin-top: 10px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(to right, var(--orange), var(--orange-light));
-    color: var(--white);
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: 0.3s;
-}
-
-.form-btn:hover {
-    opacity: 0.9;
-}
-
-/* 📱 Responsive */
-@media (max-width: 480px) {
-    .form-container {
+    :root {
+        --orange: #ff7a00;
+        --orange-light: #ff9f00;
+        --teal: #009999;
+        --text-dark: #000;
+        --text-gray: #333;
+        --background: #f5f5f5;
+        --input-border: #ccc;
+        --white: #fff;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
         padding: 20px;
+        background-color: var(--background);
     }
-
-    .main-title {
-        font-size: 20px;
+    
+    .form-container {
+        position: relative;
+        width: 100%;
+        background-color: var(--white);
+        border-radius: 20px;
+        padding: 30px 40px;
+        z-index: 1;
+        max-width: 450px; /* Taille fixe plutôt que pourcentage */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-
-    .form-btn {
+    
+    .alert-succes {
+        padding: 10px;
+        color: var(--teal);
+        text-align: center;
+        width: 100%;
+        background-color: rgba(123, 255, 123, 0.2);
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .with-shadow::before, .with-shadow::after {
+        content: "";
+        position: absolute;
+        border-radius: 20px;
+        z-index: -1;
+    }
+    
+    .with-shadow::before {
+        top: 8px;
+        right: -8px;
+        bottom: 0;
+        width: 100%;
+        border-right: 8px solid var(--orange);
+    }
+    
+    .with-shadow::after {
+        bottom: -8px;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-bottom: 8px solid var(--teal);
+    }
+    
+    .logo {
+        height: 40px;
+        width: 150px;
+        margin: 0 auto;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .logo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .orange-text {
+        font-size: 12px;
+        color: var(--orange);
+    }
+    
+    .sonatel-text {
+        font-size: 24px;
+        color: var(--teal);
+        font-weight: bold;
+    }
+    
+    .orange-bar {
+        color: var(--orange);
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+    
+    .welcome {
+        text-align: center;
+        margin-top: 10px;
         font-size: 14px;
+        color: var(--text-dark);
     }
-}
+    
+    .academy {
+        color: var(--orange);
+        font-weight: bold;
+    }
+    
+    .main-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    label {
+        font-size: 14px;
+        color: var(--text-gray);
+        margin-top: 5px;
+    }
+    
+    .input {
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid var(--input-border);
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .page-link {
+        text-align: right;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    
+    .page-link-label {
+        color: var(--orange);
+        cursor: pointer;
+    }
+    
+    .page-link-label:hover {
+        text-decoration: underline;
+    }
+    
+    .form-btn {
+        margin-top: 20px;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(to right, var(--orange), var(--orange-light));
+        color: var(--white);
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+        width: 100%;
+    }
+    
+    .form-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+    
+    /* Media Queries pour la responsivité */
+    /* Grand écran */
+    @media (min-width: 1200px) {
+        .form-container {
+            max-width: 450px;
+        }
+    }
+    
+    /* Tablette et petits écrans */
+    @media (max-width: 992px) {
+        .form-container {
+            max-width: 400px;
+        }
+    }
+    
+    /* Tablettes */
+    @media (max-width: 768px) {
+        .form-container {
+            max-width: 90%;
+            padding: 25px 30px;
+        }
+        
+        .main-title {
+            font-size: 22px;
+        }
+    }
+    
+    /* Smartphones */
+    @media (max-width: 576px) {
+        body {
+            padding: 15px;
+        }
+        
+        .form-container {
+            max-width: 100%;
+            padding: 20px;
+            height: auto;
+        }
+        
+        .with-shadow::before {
+            right: -5px;
+            border-right: 5px solid var(--orange);
+        }
+        
+        .with-shadow::after {
+            bottom: -5px;
+            border-bottom: 5px solid var(--teal);
+        }
+        
+        .logo {
+            height: 35px;
+            width: 130px;
+        }
+        
+        .main-title {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+        
+        .input, .form-btn {
+            padding: 10px;
+        }
+        
+        .form-btn {
+            font-size: 14px;
+        }
+    }
+    
+    /* Très petits écrans */
+    @media (max-width: 360px) {
+        .form-container {
+            padding: 15px;
+        }
+        
+        .logo {
+            height: 30px;
+            width: 120px;
+        }
+        
+        .sonatel-text {
+            font-size: 20px;
+        }
+        
+        .orange-bar {
+            font-size: 20px;
+        }
+        
+        .main-title {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+        
+        .welcome {
+            font-size: 12px;
+        }
+        
+        label {
+            font-size: 12px;
+        }
+    }
+   
