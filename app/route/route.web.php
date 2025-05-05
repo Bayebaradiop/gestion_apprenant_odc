@@ -31,6 +31,12 @@ match ($page) {
         lister_apprenant();
     })(),
 
+
+    'entente' => (function () {
+        require_once vers_page::APPRENANT_CONTROLLER->value;
+            lister_en_attente();
+    })(),
+
    'ajouter_apprenant' => (function () {
         require_once vers_page::APPRENANT_CONTROLLER->value;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -105,11 +111,12 @@ match ($page) {
             affecter_referenciel_a_promo_active();
         })(),
 
-
         'desaffecter' => (function () {
             require_once vers_page::REFERENCIEL_CONTROLLER->value;
             desaffecter_referenciel_de_promo_active();
         })(),
+
+
     default => (function () use ($page) {
         require_once vers_page::ERROR_CONTROLLER->value;
     })()

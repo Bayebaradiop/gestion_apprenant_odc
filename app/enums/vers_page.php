@@ -3,6 +3,32 @@ namespace App\Enums;
 
 enum vers_page: string
 {
+
+    // Modèle
+    case MODEL = __DIR__ . '/../models/model.php';
+    case AUTH_MODEL = __DIR__ . '/../models/auth.model.php';
+    case REF_MODEL = __DIR__ . '/../models/ref.model.php';
+    case PROMO_MODEL = __DIR__ . '/../models/promo.model.php';
+    case APPRENANT_MODEL = __DIR__ . '/../models/apprenant.model.php';
+
+
+
+
+
+
+    // Vues
+    case VIEW_LOGIN = __DIR__ . '/../views/login/login.view.php';
+    case VIEW_RESETPASSWORD = __DIR__ . '/../views/login/reset_password.view.php';
+    case VIEW_PROMO = __DIR__ . '/../views/promo/promo.view.php';
+    case VIEW_REFERENCIEL = __DIR__ . '/../views/referenciel/referenciel.view.php';
+    case VIEW_ERREUR = __DIR__ . '/../views/erreur/erreur.view.php';
+    case VIEW_APPRENANT = __DIR__ . '/../views/apprenant/apprenant.view.php';
+    
+
+
+
+
+
     // Contrôleurs
     case CONTROLLER = __DIR__ . '/../controllers/controller.php';
     case AUTH_CONTROLLER = __DIR__ . '/../controllers/auth.controller.php';
@@ -13,12 +39,9 @@ enum vers_page: string
     case APPRENANT_CONTROLLER = __DIR__ . '/../controllers/apprenant.controller.php';
 
 
-    // Modèle
-    case MODEL = __DIR__ . '/../models/model.php';
-    case AUTH_MODEL = __DIR__ . '/../models/auth.model.php';
-    case REF_MODEL = __DIR__ . '/../models/ref.model.php';
-    case PROMO_MODEL = __DIR__ . '/../models/promo.model.php';
-    case APPRENANT_MODEL = __DIR__ . '/../models/apprenant.model.php';
+
+
+    
 
 
     // Données
@@ -34,14 +57,7 @@ enum vers_page: string
     // Layouts
     case LAYOUT_BASE = __DIR__ . '/../views/layout/base.layout.php';
 
-    // Vues
-    case VIEW_LOGIN = __DIR__ . '/../views/login/login.view.php';
-    case VIEW_RESETPASSWORD = __DIR__ . '/../views/login/reset_password.view.php';
-    case VIEW_PROMO = __DIR__ . '/../views/promo/promo.view.php';
-    case VIEW_REFERENCIEL = __DIR__ . '/../views/referenciel/referenciel.view.php';
-    case VIEW_ERREUR = __DIR__ . '/../views/erreur/erreur.view.php';
-    case VIEW_APPRENANT = __DIR__ . '/../views/apprenant/apprenant.view.php';
-    
+
 
     ///////////////////enum////////////
     case ERREUR_ENUM = __DIR__ . '/../enums/erreur.enum.php';
@@ -53,17 +69,22 @@ enum vers_page: string
     case ERROR_FR = __DIR__ . '/../views/translate/fr/error.fr.php';
     case MESSAGE_FR = __DIR__ . '/../views/translate/fr/message.fr.php';
 
+
+
     // Public
     case INDEX_PUBLIC = __DIR__ . '/../../public/index.php';
+
+
+    //le style
+
     case CSS_DASHBOARD = __DIR__ . '/../../public/assets/css/dashboard.css';
-    //////////////////////////////////////////////page  login ////////////////////////////////////////
     case CSS_LOGIN = '/assets/css/login/login.css';
     case CSS_PROMO = '/assets/css/promo/promo.css';
-
     case CSS_PROMOa = '/assets/css/promo/add_promo.css';
-
     case CSS_REFERENCIEL = '/assets/css/referenciel/referenciel.css';
 
+
+    // Images
     case IMG_LOGO_LOGIN = '/assets/images/login/logo_odc.png';
     case IMG_LOGO_SIDEBAR = __DIR__ . '/assets/images/sidebar/logo.png';
 }

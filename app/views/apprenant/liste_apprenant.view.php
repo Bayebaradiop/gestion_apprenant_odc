@@ -465,8 +465,8 @@ $success = recuperer_session('success');
 <?php endif; ?>
 
     <button class="active">Liste des retenues</button>
-    <button>Liste d'attente</button>
-  </div>
+    <a href="index.php?page=entente">en entente<label for="menu-toggle" class="menu-closer"></label></a>
+    </div>
 
   <!-- Flash messages -->
   <?php if (!empty($_SESSION['errors'])): ?>

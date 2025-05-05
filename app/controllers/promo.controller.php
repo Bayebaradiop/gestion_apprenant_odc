@@ -64,16 +64,16 @@ function afficher_promotions_generique(string $vue, int $parPage): void {
 }
 
 
+
 function afficher_promotions(): void {
     afficher_promotions_generique("promo/promo", 5);
 }
+
 
 function afficher_promotions_en_table(): void {
     afficher_promotions_generique("promo/liste_promo", 5);
 }
 
-
-//fin
 
 
 //ajouter une promotion

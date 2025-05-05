@@ -20,6 +20,17 @@ if (isset($_GET['page'])) {
     };
 }
 
+function gerer_auth(): void {
+    if ($_GET['page'] === 'logout') {
+        logout();
+    } elseif ($_GET['page'] === 'resetPassword') {
+        voir_page_reset_password();
+    } else {
+        voir_page_login();
+    }
+}
+
+
 // === PAGE LOGIN ===
 function voir_page_login(): void {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
