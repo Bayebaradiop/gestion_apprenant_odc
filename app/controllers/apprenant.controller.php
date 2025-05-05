@@ -22,6 +22,16 @@ require_once vers_page::VALIDATOR_SERVICE->value;
 global $apprenants, $ref_model;
 
 
+function ajouter_apprenant(): void {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        traiter_ajout_apprenant();
+    } else {
+        ajout_apprenant_vue();
+    }
+}
+
+
+
 
 function filtrer_apprenants(array $apprenants, ?string $nomRecherche, ?int $referencielId, ?string $statut = null): array {
     return array_filter($apprenants, function ($apprenant) use ($nomRecherche, $referencielId, $statut) {
@@ -115,9 +125,7 @@ function lister_en_attente(): void {
 }
 
 
-
-
-
+/// Fonction pour importer des apprenants depuis un fichier Excel
 function importer_apprenants(): void {
     global $apprenants, $validator;
 
@@ -168,7 +176,7 @@ function importer_apprenants(): void {
 
 
 
-
+// Vérifie si la promotion est en cours
 function get_referentiels_valides(string $cheminJson): array {
     $data = json_decode(file_get_contents($cheminJson), true);
     $referentiels = [];
@@ -185,7 +193,7 @@ function get_referentiels_valides(string $cheminJson): array {
 }
 
 
-
+/// Vérifie si la promotion est en cours
 function valider_et_transformer_ligne(array $ligne, int $index, array $refValid): ?array {
     global $validator;
 
@@ -264,11 +272,14 @@ function extraire_donnees_apprenant(array $ligne): array {
 }
 
 
+/// Enregistre un message d'erreur dans la session
 function enregistrer_message_erreur(string $message): void {
     stocker_session('errors', [$message]);
 }
 
 
+
+/// Enregistre un message de succès dans la session
 function enregistrer_message_succes(string $message): void {
     stocker_session('success', $message);
 }
@@ -299,6 +310,7 @@ function ajout_apprenant_vue(): void {
     ], layout: 'base.layout');
 }
 
+
 /**
  * Traiter ajout apprenant (POST)
  */
@@ -322,9 +334,9 @@ function traiter_ajout_apprenant(): void {
         'tuteur_adresse' => trim($_POST['tuteur_adresse'] ?? ''),
         'tuteur_telephone' => trim($_POST['tuteur_telephone'] ?? ''),
         'document' => $_FILES['document'] ?? null
-        
     ];
 
+    
     $errors = $validator[VALIDATORMETHODE::APPRENANT->value]($data);
 
     if (!empty($errors)) {
@@ -334,10 +346,22 @@ function traiter_ajout_apprenant(): void {
         exit;
     }
 
+    
+
     $cheminJson = vers_page::DATA_JSON->value;
     $nouvelApprenant = creer_donnees_apprenant($data);
 
     $apprenants[APPMETHODE::AJOUTER->value]($nouvelApprenant, $cheminJson);
+
+   
+    
+    $login = $nouvelApprenant['login'];
+    $password = 'password123';
+    $envoiMail = envoyerEmailApprenant($login, $login, $password);
+
+    if ($envoiMail !== true) {
+        enregistrer_message_erreur("Échec d'envoi pour $login : $envoiMail");
+    }
 
     enregistrer_message_succes('Apprenant ajouté avec succès.');
     redirect_to_route('index.php', ['page' => 'liste_apprenant']);
@@ -346,7 +370,6 @@ function traiter_ajout_apprenant(): void {
 /**
  * Générer un matricule automatique
  */
-
 
 function charger_referenciels(): array {
     global $model_tab;
@@ -381,18 +404,12 @@ function creer_donnees_apprenant(array $post): array {
         'lien_parente' => $post['lien_parente'] ?? '',
         'tuteur_adresse' => $post['tuteur_adresse'] ?? '',
         'tuteur_telephone' => $post['tuteur_telephone'] ?? '',
-        'document' => $post['document']['name'] ?? '', // ou chemin si tu veux upload
-
-
-                  
-          
-        
+        'document' => $post['document']['name'] ?? '', // ou chemin si tu veux upload 
     ];
     envoyerEmailApprenant($post['login'], $post['login'],'password123');
 
 
 }
-
 
 
 

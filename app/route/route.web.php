@@ -99,28 +99,28 @@ match ($page) {
         traiter_activation_promotion_liste();
     })(),
 
+
+    'ajouter' => (function () {
+        require_once vers_page::REFERENCIEL_CONTROLLER->value;
+        ajouter_referenciel();
+    })(),
+
+    'affecter' => (function () {
+            require_once vers_page::REFERENCIEL_CONTROLLER->value;
+            affecter_referenciel_a_promo_active();
+        })(),
+
+        'desaffecter' => (function () {
+            require_once vers_page::REFERENCIEL_CONTROLLER->value;
+            desaffecter_referenciel_de_promo_active();
+        })(),
+
+
     default => (function () use ($page) {
         require_once vers_page::ERROR_CONTROLLER->value;
     })()
 };
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    match ($_POST['action'] ?? '') {
-        'ajouter' => (function () {
-            require_once vers_page::REFERENCIEL_CONTROLLER->value;
-            ajouter_referenciel();
-        })(),
-        'affecter' => (function () {
-            require_once vers_page::REFERENCIEL_CONTROLLER->value;
-            affecter_referenciel_a_promo_active();
-        })(),
-        'desaffecter' => (function () {
-            require_once vers_page::REFERENCIEL_CONTROLLER->value;
-            desaffecter_referenciel_de_promo_active();
-        })(),
-        default => null,
-    };
-}
 
 
 

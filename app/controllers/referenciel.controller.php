@@ -13,7 +13,6 @@ demarrer_session();
 
 
 
-/** --- ROUTAGE --- */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         match ($_POST['action']) {
